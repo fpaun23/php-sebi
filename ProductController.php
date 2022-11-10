@@ -2,7 +2,6 @@
 
 require_once('Product.php');
 
-
 class ProductsController{
 
     protected string $name;
@@ -16,8 +15,10 @@ class ProductsController{
 
     public function manageProduct(): void
     {
-        $productsObj = new ProductsClass($this->price, $this->name);      
+        $productsObj = new Product($this->price, $this->name);      
         $productsObj->printPriceAndName();
+
+        
     }
 }
 ?>
