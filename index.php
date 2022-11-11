@@ -4,8 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once('ProductController.php');
-require_once('db/PdoConnectionClass.php');
-require_once('db/CustomerControllerClass.php');
+require_once('CustomerControllerClass.php');
 
 
 $productsControllerObj = new ProductsController(100, 'frigider');
