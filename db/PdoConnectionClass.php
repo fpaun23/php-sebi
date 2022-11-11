@@ -9,8 +9,11 @@ class PdoConnectionClass
     private $dbname = 'mydatabase2';
 
     protected $con;
-
-    public function openConnection()
+    public function __construct()
+    {
+        $this->openConnection();
+    }
+    private function openConnection()
     {
         try {
             $this->con = new PDO("mysql:host=$this->dbhost; dbname=$this->dbname", $this->dbuser, $this->dbpass);
