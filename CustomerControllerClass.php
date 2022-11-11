@@ -15,12 +15,26 @@ class CustomerControllerClass
     {
         $pdoCon = new PdoConnectionClass();
         $pdoCon->openConnection();
-        $result = $pdoCon->get($this->table);
-        
-        return $result;
+        return $result = $pdoCon->get($this->table);
     }
-//     public function insertCustomer(array $insertData):int
-//     {
-//         $pdoCon = new PdoConnectionClass();
-//     }
+    public function insertCustomer(array $insertData):int
+    {
+        $pdoCon = new PdoConnectionClass();
+        $pdoCon->openConnection();
+        return $result = $pdoCon->insert($this->table, $insertData);
+    }
+
+    public function updateCustomer(array $updateData):bool
+    {
+        $pdoCon = new PdoConnectionClass();
+        $pdoCon->openConnection();
+        return $result = $pdoCon->update($this->table, $updateData);
+    }
+
+    public function deleteCustomer(int $customerId):bool
+    {
+        $pdoCon = new PdoConnectionClass();
+        $pdoCon->openConnection();
+        return $result = $pdoCon->delete($this->table, $customerId);
+    }
 }
