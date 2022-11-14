@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 require_once('ProductController.php');
 require_once('CustomerControllerClass.php');
+require_once('db/MysqliConnectionClass.php');
 
 
 $productsControllerObj = new ProductsController(100, 'frigider');
@@ -24,12 +25,21 @@ $productsControllerObj2->manageProduct();
  //var_dump($customers);
 // echo '<pre>';
 // echo '<br /> ========================================= <br />';
-$customerManager = new CustomerControllerClass("customer");
+$cuscon = new MysqliConnectionClass();
+$customerManager = new CustomerControllerClass("customer", $cuscon);
 //$customerManager->insertCustomer(['testInsert@devnest.ro']);
 //$customerManager->updateCustomer(['testUpdate@devnest.ro', 7]);
-$customerManager->deleteCustomer(7);
+//$customerManager->deleteCustomer(7);
 echo '<br /> ========================================= <br />';
 echo '<pre>';
 var_dump($customerManager->getCustomer());
 echo '<pre>';
 echo '<br /> ========================================= <br />';
+// $MysliConnectionObj = new MysqliConnectionClass();
+// echo '<br /> ========================================= <br />';
+// echo '<pre>';
+// var_dump($MysliConnectionObj->get('customer'));
+// echo '<pre>';
+// echo '<br /> ========================================= <br />';
+// $MysliConnectionObj->update('customer', ['test22@devnest.ro', 5]);
+// $MysliConnectionObj->delete('customer', 11);

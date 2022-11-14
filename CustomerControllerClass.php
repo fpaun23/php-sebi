@@ -6,10 +6,10 @@ class CustomerControllerClass
 {
     protected string $table = "customer";
     protected $cuscon;
-    public function __construct(string $table)
+    public function __construct(string $table, DbConnectionInterface $cuscon)
     {
         $this->table=$table;
-        $this->cuscon = new PdoConnectionClass();
+        $this->cuscon = $cuscon;
     }
 
     public function getCustomer():array

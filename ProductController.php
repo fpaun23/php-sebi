@@ -2,11 +2,10 @@
 
 require_once('Product.php');
 
-class ProductsController{
-
+class ProductsController
+{
     protected string $name;
     protected int $price;
-
     public function __construct(int $newPrice, string $newName)
     {
         $this->price = $newPrice;
@@ -15,10 +14,7 @@ class ProductsController{
 
     public function manageProduct(): void
     {
-        $productsObj = new Product($this->price, $this->name);      
+        $productsObj = new Product($this->price, $this->name);
         $productsObj->printPriceAndName();
-
-        
     }
 }
-?>
